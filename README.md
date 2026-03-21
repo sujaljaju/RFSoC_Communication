@@ -40,14 +40,14 @@ Each design in this repo builds directly on the previous one. The progression is
 
 | # | Design | What It Solves | Status |
 |---|--------|----------------|--------|
-| 1 | `dma_dac` | Can we produce an analog signal from Python at all? | ✅ Working |
-| 2 | `adc_dma` | Can we capture an RF signal back into Python? | ✅ Working |
-| 3 | `dac_adc_loopback` | Can TX and RX work together in one design? | ✅ Working |
-| 4 | `fsk_loopback` | Can we encode data into frequency and decode it? | ✅ Working — 100% accuracy |
-| 5 | `dma_dac_ask_modulated` | Can we do ASK modulation in hardware (HLS)? | ⚠️ Partial — TX works, bulk DMA stalls |
-| 6 | `ask_pl_loopback` | Can the full ASK mod+demod pipeline run in PL? | ✅ Working |
-| 7 | `ask_dac_adc` | Can we do ASK over a physical RF loopback? | ⚠️ Experimental |
-| 8 | `fifo_dac_adc` | Can FIFOs resolve the clock-domain issues? | ❌ Did not produce results |
+| 1 | `dma_dac` | Can we produce an analog signal from Python at all? | Working |
+| 2 | `adc_dma` | Can we capture an RF signal back into Python? | Working |
+| 3 | `dac_adc_loopback` | Can TX and RX work together in one design? | Working |
+| 4 | `fsk_loopback` | Can we encode data into frequency and decode it? | Working — 100% accuracy |
+| 5 | `dma_dac_ask_modulated` | Can we do ASK modulation in hardware (HLS)? | Partial — TX works, bulk DMA stalls |
+| 6 | `ask_pl_loopback` | Can the full ASK mod+demod pipeline run in PL? | Working |
+| 7 | `ask_dac_adc` | Can we do ASK over a physical RF loopback? | Experimental |
+| 8 | `fifo_dac_adc` | Can FIFOs resolve the clock-domain issues? | Did not produce results |
 
 ---
 
