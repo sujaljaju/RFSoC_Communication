@@ -19,10 +19,8 @@ Getting this working was the prerequisite for everything else in this repository
 Python allocates a buffer in DDR memory, fills it with waveform samples (sine wave, square wave, etc.), and hands it to the AXI DMA. The DMA reads those samples and streams them over AXI-Stream to the RF Data Converter (RFDC), which converts them to an analog signal at the `vout00` SMA connector.
 
 <p align="center">
-  <img src="images/01_dma_dac_flow.svg" width="700" />
+  <img src="../images/01_dma_dac_flow.svg" width="700" />
 </p>
-
-
 ---
 
 ## Files
