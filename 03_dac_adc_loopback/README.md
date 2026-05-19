@@ -18,15 +18,9 @@ This is the foundation that all subsequent communication experiments are built o
 
 Python sends a waveform out the DAC via the DMA MM2S channel. The signal travels through the SMA loopback cable, enters the ADC, gets digitized, and flows back to Python via the DMA S2MM channel. Both directions share a single AXI DMA and a single connection to PS memory.
 
-```
-Python sends buffer ──► AXI DMA MM2S ──► RFDC DAC ──► vout00 SMA
-                                                            │
-                                                      [SMA cable]
-                                                            │
-Python reads buffer ◄── AXI DMA S2MM ◄── RFDC ADC ◄── vin2_01 SMA
-                              ▲
-                   axis_subset_converter
-```
+<p align="center">
+  <img src="../images/03_loopback_architecture.svg" width="700" />
+</p>
 
 **Physical requirement:** An SMA coaxial cable connecting `vout00` to `vin2_01` on the board.
 
