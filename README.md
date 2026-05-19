@@ -105,31 +105,9 @@ Two custom IPs were written in Vivado HLS C++ and packaged as reusable IP cores:
 
 All designs share this fundamental structure. What changes between them is which paths are enabled and what processing sits between the DMA and the RFDC:
 
-```
-┌──────────────────────────────────────────────┐
-│              Zynq PS (ARM A53)               │
-│   PYNQ / Python                              │
-│      │ AXI-Lite (control)                   │
-│      │ AXI HP/HPC (DMA data)                │
-└──────┬───────────────────────┬──────────────┘
-       │                       │
- ┌─────▼──────┐         ┌──────▼──────┐
- │ AXI Periph │         │  AXI DMA    │
- │ Interconn. │         │ MM2S / S2MM │
- └─────┬──────┘         └──────┬──────┘
-       │ (control)             │ AXI-Stream
-       │               ┌───────▼──────────────┐
-       └──────────────►│  [Optional HLS IP]   │
-                       │  ask_modulator /      │
-                       │  ask_demodulator      │
-                       └───────┬──────────────┘
-                               │
-                    ┌──────────▼───────────┐
-                    │   RF Data Converter  │
-                    │  DAC Tile 0 → vout00 │
-                    │  ADC Tile 2 ← vin2_01│
-                    └──────────────────────┘
-```
+<p align="center">
+  <img src="images/common_architecture.svg" alt="RFSoC Common Hardware Architecture Block Diagram" width="700" />
+</p>
 
 ---
 
