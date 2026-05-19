@@ -10,9 +10,9 @@ This repository documents that entire journey, including the designs that didn't
 
 ## Team
 
-- Aryan
-- Sujal
-- Harsh
+- Aryan Kadam
+- Sujal Jaju
+- Harsh Jaiswal
 
 **Supervisor:** Prof. Ameer Mulla, IIT Dharwad
 **Duration:** December 2024
