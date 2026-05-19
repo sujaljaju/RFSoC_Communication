@@ -18,21 +18,10 @@ Getting this working was the prerequisite for everything else in this repository
 
 Python allocates a buffer in DDR memory, fills it with waveform samples (sine wave, square wave, etc.), and hands it to the AXI DMA. The DMA reads those samples and streams them over AXI-Stream to the RF Data Converter (RFDC), which converts them to an analog signal at the `vout00` SMA connector.
 
-```
-Python (PYNQ)
-   │  fills buffer with samples
-   ▼
-DDR Memory
-   │  AXI HP — S_AXI_HPC0_FPD
-   ▼
-AXI DMA (MM2S — memory to stream)
-   │  128-bit AXI-Stream @ ~307 MHz fabric clock
-   ▼
-RFDC DAC Tile 0, Slice 0
-   │  analog output @ 4.9152 GSPS
-   ▼
-vout00 SMA ──► Oscilloscope
-```
+<p align="center">
+  <img src="images/01_dma_dac_flow.svg" alt="What this Design does" width="700" />
+</p>
+
 
 ---
 
