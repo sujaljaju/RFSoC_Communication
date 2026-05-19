@@ -20,27 +20,9 @@ No new hardware required. The same `dac_adc.bit` bitfile from Design 03 is reuse
 
 A binary sequence is split into 2-bit pairs. Each pair maps to one of four NCO frequencies (100, 200, 300, 400 MHz). For each symbol, Python updates the DAC NCO, triggers an ADC capture, runs FFT on the received samples to detect the dominant frequency, and maps it back to bits.
 
-```
-Binary input: "00011011..."
-      │
-      ▼
-Split into 2-bit symbols: 00, 01, 10, 11
-      │
-      ▼  (for each symbol)
-Update DAC NCO: 00→100MHz  01→200MHz  10→300MHz  11→400MHz
-      │
-      ▼
-DAC outputs tone ──► SMA cable ──► ADC captures samples
-      │
-      ▼
-FFT on received samples → find peak frequency
-      │
-      ▼
-Map frequency back to bits: ~100MHz→00  ~200MHz→01  ~300MHz→10  ~400MHz→11
-      │
-      ▼
-Decoded binary output
-```
+<p align="center">
+  <img src="../images/04_fsk_flow.svg" width="700" />
+</p>
 
 ---
 
