@@ -1,0 +1,91 @@
+<svg width="100%" viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: ui-sans-serif, system-ui, sans-serif; }
+      .th { font-size: 14px; font-weight: 500; fill: #1a1a1a; }
+      .t  { font-size: 14px; font-weight: 400; fill: #1a1a1a; }
+      .ts { font-size: 12px; font-weight: 400; fill: #555; }
+      .label-white { font-size: 13px; font-weight: 500; fill: #fff; }
+      .label-white-sm { font-size: 11px; font-weight: 400; fill: rgba(255,255,255,0.85); }
+      .arr { stroke: #888; stroke-width: 1.5; fill: none; }
+      .arr-dashed { stroke: #aaa; stroke-width: 1.2; fill: none; stroke-dasharray: 5 3; }
+      @media (prefers-color-scheme: dark) {
+        .th { fill: #e8e6dc; }
+        .t  { fill: #e8e6dc; }
+        .ts { fill: #999; }
+        .arr { stroke: #666; }
+        .arr-dashed { stroke: #555; }
+      }
+    </style>
+  </defs>
+
+  <!-- PS block -->
+  <rect x="160" y="30" width="360" height="110" rx="14" fill="#3c348f" stroke="#2a2468" stroke-width="0.5"/>
+  <text class="label-white" x="340" y="60" text-anchor="middle" font-size="15" font-weight="600">Zynq PS — ARM Cortex-A53</text>
+  <text class="label-white-sm" x="340" y="80" text-anchor="middle">PYNQ / Python</text>
+  <!-- two sub-labels -->
+  <rect x="186" y="94" width="148" height="30" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text class="label-white-sm" x="260" y="113" text-anchor="middle">AXI-Lite (control)</text>
+  <rect x="346" y="94" width="148" height="30" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text class="label-white-sm" x="420" y="113" text-anchor="middle">AXI HP/HPC (data)</text>
+
+  <!-- Arrow: PS AXI-Lite down to Periph Interconnect -->
+  <line x1="260" y1="140" x2="260" y2="190" class="arr" marker-end="url(#arrow)"/>
+  <!-- Arrow: PS AXI HP down to DMA -->
+  <line x1="420" y1="140" x2="420" y2="190" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- AXI Peripheral Interconnect -->
+  <rect x="170" y="190" width="178" height="52" rx="10" fill="#1D9E75" stroke="#0F6E56" stroke-width="0.5"/>
+  <text class="label-white" x="259" y="212" text-anchor="middle" font-size="12">AXI Periph Interconnect</text>
+  <text class="label-white-sm" x="259" y="230" text-anchor="middle">DMA · RFDC · INTC control</text>
+
+  <!-- AXI DMA -->
+  <rect x="332" y="190" width="178" height="52" rx="10" fill="#185FA5" stroke="#0C447C" stroke-width="0.5"/>
+  <text class="label-white" x="421" y="212" text-anchor="middle" font-size="12">AXI DMA</text>
+  <text class="label-white-sm" x="421" y="230" text-anchor="middle">MM2S / S2MM</text>
+
+  <!-- Arrow: Periph down to HLS IP (dashed = optional) -->
+  <line x1="259" y1="242" x2="259" y2="295" class="arr-dashed" marker-end="url(#arrow)"/>
+  <!-- Arrow: DMA down to HLS IP -->
+  <line x1="421" y1="242" x2="421" y2="295" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- HLS IP block (optional) -->
+  <rect x="170" y="295" width="340" height="52" rx="10" fill="#854F0B" stroke="#633806" stroke-width="0.5"/>
+  <text class="label-white" x="340" y="316" text-anchor="middle" font-size="12">HLS IP (optional) — ask_modulator / ask_demodulator</text>
+  <text class="label-white-sm" x="340" y="334" text-anchor="middle">Present in Designs 05, 06, 07 only</text>
+
+  <!-- bracket label: optional -->
+  <text class="ts" x="524" y="325" text-anchor="start" font-style="italic">optional</text>
+
+  <!-- Arrow: HLS down to RFDC -->
+  <line x1="340" y1="347" x2="340" y2="395" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- RFDC block -->
+  <rect x="140" y="395" width="400" height="90" rx="14" fill="#993C1D" stroke="#712B13" stroke-width="0.5"/>
+  <text class="label-white" x="340" y="422" text-anchor="middle" font-size="15" font-weight="600">RF Data Converter (RFDC)</text>
+  <!-- DAC sub -->
+  <rect x="164" y="436" width="170" height="34" rx="7" fill="rgba(255,255,255,0.13)"/>
+  <text class="label-white-sm" x="249" y="450" text-anchor="middle">DAC Tile 0</text>
+  <text class="label-white-sm" x="249" y="464" text-anchor="middle">4.9152 GSPS → vout00</text>
+  <!-- ADC sub -->
+  <rect x="346" y="436" width="170" height="34" rx="7" fill="rgba(255,255,255,0.13)"/>
+  <text class="label-white-sm" x="431" y="450" text-anchor="middle">ADC Tile 2</text>
+  <text class="label-white-sm" x="431" y="464" text-anchor="middle">4.9152 GSPS ← vin2_01</text>
+
+  <!-- External SMA labels -->
+  <line x1="249" y1="485" x2="249" y2="510" class="arr" marker-end="url(#arrow)" stroke="#c0392b"/>
+  <text class="ts" x="249" y="520" text-anchor="middle" fill="#c0392b">vout00 (SMA out)</text>
+
+  <line x1="431" y1="510" x2="431" y2="485" class="arr" marker-end="url(#arrow)" stroke="#2980b9"/>
+  <text class="ts" x="431" y="520" text-anchor="middle" fill="#2980b9">vin2_01 (SMA in)</text>
+
+  <!-- Clock note -->
+  <rect x="560" y="190" width="100" height="56" rx="8" fill="none" stroke="#aaa" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <text class="ts" x="610" y="211" text-anchor="middle">Clocks</text>
+  <text class="ts" x="610" y="227" text-anchor="middle">100 MHz ctrl</text>
+  <text class="ts" x="610" y="243" text-anchor="middle">307 MHz DAC</text>
+  <line x1="510" y1="218" x2="558" y2="218" class="arr-dashed" marker-end="url(#arrow)"/>
+</svg>

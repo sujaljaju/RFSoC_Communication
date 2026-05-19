@@ -1,0 +1,51 @@
+<svg width="100%" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: ui-sans-serif, system-ui, sans-serif; }
+      .lw  { font-size: 13px; font-weight: 500; fill: #fff; }
+      .lws { font-size: 11px; font-weight: 400; fill: rgba(255,255,255,0.82); }
+      .side { font-size: 11px; fill: #666; }
+      .arr { stroke: #888; stroke-width: 1.5; fill: none; }
+      @media (prefers-color-scheme: dark) { .side { fill: #888; } }
+    </style>
+  </defs>
+
+  <!-- Step 1: Python -->
+  <rect x="220" y="30" width="240" height="52" rx="10" fill="#3c348f" stroke="#2a2468" stroke-width="0.5"/>
+  <text class="lw" x="340" y="52" text-anchor="middle">Python (PYNQ)</text>
+  <text class="lws" x="340" y="69" text-anchor="middle">allocate buffer · fill waveform samples</text>
+
+  <!-- connector + side label -->
+  <line x1="340" y1="82" x2="340" y2="118" class="arr" marker-end="url(#arrow)"/>
+  <text class="side" x="352" y="104">AXI HP — S_AXI_HPC0_FPD</text>
+
+  <!-- Step 2: DDR Memory -->
+  <rect x="220" y="118" width="240" height="52" rx="10" fill="#1D9E75" stroke="#0F6E56" stroke-width="0.5"/>
+  <text class="lw" x="340" y="140" text-anchor="middle">DDR Memory</text>
+  <text class="lws" x="340" y="157" text-anchor="middle">waveform samples (uint16)</text>
+
+  <line x1="340" y1="170" x2="340" y2="206" class="arr" marker-end="url(#arrow)"/>
+  <text class="side" x="352" y="192">128-bit burst reads</text>
+
+  <!-- Step 3: DMA -->
+  <rect x="220" y="206" width="240" height="52" rx="10" fill="#185FA5" stroke="#0C447C" stroke-width="0.5"/>
+  <text class="lw" x="340" y="228" text-anchor="middle">AXI DMA — MM2S</text>
+  <text class="lws" x="340" y="245" text-anchor="middle">memory → stream, no scatter-gather</text>
+
+  <line x1="340" y1="258" x2="340" y2="294" class="arr" marker-end="url(#arrow)"/>
+  <text class="side" x="352" y="280">128-bit AXI-Stream @ ~307 MHz</text>
+
+  <!-- Step 4: RFDC -->
+  <rect x="220" y="294" width="240" height="52" rx="10" fill="#993C1D" stroke="#712B13" stroke-width="0.5"/>
+  <text class="lw" x="340" y="316" text-anchor="middle">RFDC DAC — Tile 0, Slice 0</text>
+  <text class="lws" x="340" y="333" text-anchor="middle">4.9152 GSPS · NCO upconversion</text>
+
+  <line x1="340" y1="346" x2="340" y2="376" class="arr" marker-end="url(#arrow)" stroke="#c0392b"/>
+
+  <!-- Step 5: SMA -->
+  <rect x="220" y="376" width="240" height="14" rx="4" fill="#c0392b" stroke="#922b21" stroke-width="0.5"/>
+  <text class="lws" x="340" y="387" text-anchor="middle">vout00 SMA → Oscilloscope / Spectrum Analyser</text>
+</svg>
