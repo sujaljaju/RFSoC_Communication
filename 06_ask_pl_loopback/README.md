@@ -18,31 +18,9 @@ Critically, in this design the signal path between modulator and demodulator is 
 
 ## What This Design Does
 
-```
-Python sends 16-bit data words
-   │
-   ▼
-AXI DMA (MM2S) ──► ask_modulator HLS IP
-                         │  8 symbols × 32-bit I/Q → 2 × 128-bit words
-                         ▼
-                   axis_data_fifo   (buffers the stream for clock crossing)
-                         │
-                         ▼
-                   RFDC DAC ──► vout00 SMA
-                                     │
-                               [SMA loopback cable]
-                                     │
-                   RFDC ADC ◄── vin2_01 SMA
-                         │
-                         ▼
-                   ask_demodulator HLS IP
-                         │  threshold detection → 2-bit symbols → 16-bit word
-                         ▼
-                   axis_subset_converter
-                         │
-                         ▼
-                   AXI DMA (S2MM) ──► DDR ──► Python reads decoded bits
-```
+<p align="center">
+  <img src="../images/06_ask_pl_loopback.svg" width="700" />
+</p>
 
 ---
 
